@@ -1,6 +1,7 @@
 import React from 'react';
-import FantasyLeaders from './FantasyLeaders';
+import News2 from './News2';
 import { makeStyles } from '@material-ui/core/styles';
+
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
@@ -12,7 +13,7 @@ import TextLoop from "react-text-loop";
 
 const useStyles = makeStyles((theme) => ({
     container: {
-        marginTop:10,
+        marginTop: 10,
     },
     root: {
         display: 'flex',
@@ -23,10 +24,20 @@ const useStyles = makeStyles((theme) => ({
         "&:hover": { transform: "scale3d(1.05, 1.05, 1)" },
         cursor: 'pointer',
     },
-
+    card: {
+        backgroundColor: '#ffff',
+        transition: "transform 0.5s ease-in-out",
+        "&:hover": { transform: "scale3d(1.05, 1.05, 1)" },
+        cursor: 'pointer',
+    },
     media: {
-        height: 280,
+        height: 490,
+        margin: 'auto',
         backgroundPosition: 'top'
+    },
+    mediacard: {
+        height: 350,
+        backgroundPosition: 'contained'
     },
     button: {
         '&:hover': {
@@ -35,9 +46,12 @@ const useStyles = makeStyles((theme) => ({
         }
     },
     typography: {
-        transition: "transform 0.5s ease-in-out",
-        "&:hover": { transform: "scale3d(1.05, 1.05, 1)" },
-        cursor: 'pointer',
+        '&:hover': {
+            backgroundColor: theme.palette.secondary.main,
+            color: theme.palette.primary.main,
+            transform: "scale3d(1.05, 1.05, 1)",
+            cursor: 'pointer'
+        }
     }
 
 }));
@@ -46,19 +60,124 @@ const useStyles = makeStyles((theme) => ({
 function News() {
     const classes = useStyles();
     return (
-        <Container className={classes.container}>
-            <Grid container>
+        <Container >
+            <Grid container className={classes.container}>
                 <Grid item xs={12}>
-                    <Typography variant="h3" color='secondary' align="center" className={classes.typography}>
-                        A look at our Fantasy Nightly Leaders. Rankings are based upon points per game, assists per game, and rebounds per game. Heres our top 5  <TextLoop>
-                                <span>🏆.</span>
-                                <span>🏀.</span>
-                                <span>👑.</span>
-                            </TextLoop>
+                    <CardContent className={classes.card}>
+                        <CardMedia
+                            className={classes.media}
+                            component='img'
+                            image='images/theFuture.jpg'
+                            title='theFuture'
+                        />
+                    </CardContent>
+                </Grid>
+            </Grid>
+            <Grid container spacing={2} className={classes.container}>
+                <Grid item xs={10} md={11}>
+                    <Typography variant="h5" color="primary">
+                        The Latest &amp; Greatest
+                    </Typography>
+                </Grid>
+                <Grid item xs={2} md={1}>
+                    <Typography variant="body2" align='left' color="primary" className={classes.typography}>
+                        Shop All
                     </Typography>
                 </Grid>
             </Grid>
-            <FantasyLeaders />
+            <Grid container spacing={2} className={classes.container}>
+                <Grid item xs={12} sm={6} md={4}>
+                    <Card className={classes.card}>
+                        <CardMedia
+                            className={classes.mediacard}
+                            image='images/blazer.jpg'
+                            title='nike blazer'
+                        />
+                        <CardContent>
+                            <Grid container spacing={1}>
+                                <Grid item xs={8} md={8}>
+                                    <Typography variant="body1" color="primary" gutterBottom>
+                                        Nike Blazer Low
+                                    </Typography>
+                                </Grid>
+                                <Grid item xs={4} md={4}>
+                                    <Typography variant="body1" color="primary" align="center" gutterBottom>
+                                        $95
+                                    </Typography>
+                                </Grid>
+                            </Grid>
+                            <Grid container spacing={2}>
+                                <Grid item xs={12}>
+                                    <Typography variant="body2" color="primary">
+                                    Men's Shoe
+                                    </Typography>
+                                </Grid>
+                            </Grid>
+                        </CardContent>
+                    </Card>
+                </Grid>
+                <Grid item xs={12} sm={6} md={4}>
+                    <Card className={classes.card}>
+                        <CardMedia
+                            className={classes.mediacard}
+                            image='images/jordan.jpg'
+                            title='jordan'
+                        />
+                        <CardContent>
+                        <Grid container spacing={1}>
+                                <Grid item xs={8} md={8}>
+                                    <Typography variant="body1" color="primary" gutterBottom>
+                                       Jordan MA2
+                                    </Typography>
+                                </Grid>
+                                <Grid item xs={4} md={4}>
+                                    <Typography variant="body1" color="primary" align="center" gutterBottom>
+                                        $125
+                                    </Typography>
+                                </Grid>
+                            </Grid>
+                            <Grid container spacing={2}>
+                                <Grid item xs={12}>
+                                    <Typography variant="body2" color="primary">
+                                    Shoe
+                                    </Typography>
+                                </Grid>
+                            </Grid>
+                        </CardContent>
+                    </Card>
+                </Grid>
+                <Grid item xs={12} sm={12} md={4}>
+                    <Card className={classes.card}>
+                        <CardMedia
+                            className={classes.mediacard}
+                            image='images/air.jpg'
+                            title='nike air'
+                        />
+                        <CardContent>
+                        <Grid container spacing={1}>
+                                <Grid item xs={8} md={8}>
+                                    <Typography variant="body1" color="primary" gutterBottom>
+                                        Nike Air Force
+                                    </Typography>
+                                </Grid>
+                                <Grid item xs={4} md={4}>
+                                    <Typography variant="body1" color="primary" align="center" gutterBottom>
+                                        $110
+                                    </Typography>
+                                </Grid>
+                            </Grid>
+                            <Grid container spacing={2}>
+                                <Grid item xs={12}>
+                                    <Typography variant="body2" color="primary">
+                                    Men's Shoe
+                                    </Typography>
+                                </Grid>
+                            </Grid>
+                        </CardContent>
+                    </Card>
+                </Grid>
+            </Grid>
+            <News2 />
         </Container>
     )
 }
