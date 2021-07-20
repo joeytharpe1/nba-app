@@ -6,8 +6,7 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
-import Container from '@material-ui/core/Container';
-import TextLoop from "react-text-loop";
+
 
 
 const useStyles = makeStyles((theme) => ({
@@ -121,7 +120,7 @@ function News2() {
             </Grid>
             <Grid container spacing={1}>
                 <Grid item xs={12} sm={12}>
-                <CardContent className={classes.card}>
+                    <CardContent className={classes.card}>
                         <CardMedia
                             className={classes.media}
                             component='img'
